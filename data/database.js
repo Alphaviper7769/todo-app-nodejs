@@ -1,10 +1,17 @@
 import mongoose from "mongoose";
 
 const connectDB=() => {
-    mongoose.connect(process.env.MONGO_URI,{
+
+     let connectToDB=""
+    if(process.env.NODE_ENV === "Development ")
+        connectToDB = process.env.MONGO_DEV
+    else
+        connectToDB = process.env.MONGO_URI
+   
+    mongoose.connect(connectToDB,{
     dbName:"backend_ToDo",
 })
-.then(()=>{console.log("DataBase Connected")})
+.then((c)=>{console.log(`DataBase Connected with ${c.connection.host}`)})
 .catch((e)=>console.log(e))
 }
 
