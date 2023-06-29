@@ -1,7 +1,7 @@
 import ErrorHandler from "../utils/errorConstruct.js";
 import { Task } from "./../models/task.js";
 
-export const check = (req, res) => {
+export const check = (req, res , next) => {
   res.status(200).json({
     success: true,
     message: "Recieved",

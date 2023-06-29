@@ -4,7 +4,8 @@ import { sendToken } from "../utils/featues.js";
 import jwt from "jsonwebtoken";
 import ErrorHandler from "../utils/errorConstruct.js";
 
-export const register = async (req, res) => {
+export const register = async (req, res , next
+) => {
 
   try {
 
@@ -26,7 +27,7 @@ export const register = async (req, res) => {
 
 };
 
-export const getMyProfile = async (req, res) => {
+export const getMyProfile = async (req, res, next) => {
   
   try {
     
@@ -60,7 +61,7 @@ export const login = async (req, res, next) => {
   }
 };
 
-export const logout = (req, res) => {
+export const logout = (req, res, next) => {
   res
     .status(200)
     .cookie("token", "", { 
